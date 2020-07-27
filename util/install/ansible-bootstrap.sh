@@ -41,8 +41,8 @@ fi
 # Bootstrapping constants
 #
 VIRTUAL_ENV_VERSION="16.7.10"
-PIP_VERSION="20.1.1"
-SETUPTOOLS_VERSION="45.0.0"
+PIP_VERSION="20.0.2"
+SETUPTOOLS_VERSION="44.1.0"
 VIRTUAL_ENV="/tmp/bootstrap"
 PYTHON_BIN="${VIRTUAL_ENV}/bin"
 ANSIBLE_DIR="/tmp/ansible"
@@ -128,16 +128,14 @@ fi
 # which may differ from what is pinned in virtualenvironments
 apt-get update -y
 
-apt-get install -y python3 python3-dev python3-pip python3-apt python3-jinja2 build-essential sudo git-core libmysqlclient-dev libffi-dev libssl-dev
+apt-get install -y python2.7 python2.7-dev python-pip python-apt python-jinja2 build-essential sudo git-core libmysqlclient-dev libffi-dev libssl-dev
 
-sudo -H pip3 install --upgrade pip
-
-pip3 install --upgrade pip=="${PIP_VERSION}"
+pip install --upgrade pip=="${PIP_VERSION}"
 
 # pip moves to /usr/local/bin when upgraded
 PATH=/usr/local/bin:${PATH}
-pip3 install setuptools=="${SETUPTOOLS_VERSION}"
-pip3 install virtualenv=="${VIRTUAL_ENV_VERSION}"
+pip install setuptools=="${SETUPTOOLS_VERSION}"
+pip install virtualenv=="${VIRTUAL_ENV_VERSION}"
 
 if [[ "true" == "${RUN_ANSIBLE}" ]]; then
     # create a new virtual env
