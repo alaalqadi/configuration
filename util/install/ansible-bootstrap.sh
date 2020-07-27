@@ -130,12 +130,12 @@ apt-get update -y
 
 apt-get install -y python2.7 python2.7-dev python-pip python-apt python-jinja2 build-essential sudo git-core libmysqlclient-dev libffi-dev libssl-dev python3-pip
 
-pip install --upgrade pip=="${PIP_VERSION}"
+pip3 install --upgrade pip=="${PIP_VERSION}"
 
 # pip moves to /usr/local/bin when upgraded
 PATH=/usr/local/bin:${PATH}
-pip3 install --ignore-requires-python --no-binary=:all setuptools=="${SETUPTOOLS_VERSION}"
-pip install virtualenv=="${VIRTUAL_ENV_VERSION}"
+pip3 install setuptools=="${SETUPTOOLS_VERSION}"
+pip3 install virtualenv=="${VIRTUAL_ENV_VERSION}"
 
 if [[ "true" == "${RUN_ANSIBLE}" ]]; then
     # create a new virtual env
