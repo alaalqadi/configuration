@@ -42,7 +42,7 @@ fi
 #
 VIRTUAL_ENV_VERSION="16.7.10"
 PIP_VERSION="20.0.2"
-SETUPTOOLS_VERSION="45"
+SETUPTOOLS_VERSION="44.1.1"
 VIRTUAL_ENV="/tmp/bootstrap"
 PYTHON_BIN="${VIRTUAL_ENV}/bin"
 ANSIBLE_DIR="/tmp/ansible"
@@ -134,7 +134,7 @@ pip install --upgrade pip=="${PIP_VERSION}"
 
 # pip moves to /usr/local/bin when upgraded
 PATH=/usr/local/bin:${PATH}
-pip install setuptools<"${SETUPTOOLS_VERSION}"
+pip install setuptools=="${SETUPTOOLS_VERSION}"
 pip install virtualenv=="${VIRTUAL_ENV_VERSION}"
 
 if [[ "true" == "${RUN_ANSIBLE}" ]]; then
